@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ClienteActivity"
     tools:showIn="@layout/activity_cliente">
 
-    <TextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tvId"
-        android:text=""/>
+        android:id="@+id/etIdCliente"
+        android:textSize="@dimen/text_size"
+        android:hint="@string/lbId"
+        android:layout_marginLeft="@dimen/left_margin"/>
 
 </LinearLayout>
