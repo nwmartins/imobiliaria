@@ -14,5 +14,8 @@
     <string name="lbCpf">CPF</string>
     <string name="lbEmail">Email</string>
     <string name="lbCorretor">Corretor</string>
+    <string name="lbCreci">Creci</string>
+    <string name="lbSalvar">Salvar</string>
+    <string name="lbCancelar">Cancelar</string>
     <string name="title_activity_corretor">Cadastro de Corretor</string>
 </resources>
