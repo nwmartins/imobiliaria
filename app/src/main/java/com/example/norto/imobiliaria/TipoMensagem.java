@@ -1,4 +1,4 @@
-package com.example.appcomponentes;
+package com.example.norto.imobiliaria;
 
 public enum TipoMensagem {
     ALERTA(1), ERRO(2), SUCESSO(3);
