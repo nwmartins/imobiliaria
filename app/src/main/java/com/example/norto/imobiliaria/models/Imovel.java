@@ -1,19 +1,24 @@
 package com.example.norto.imobiliaria.models;
 
+import java.util.Objects;
+
 public class Imovel {
-    private int id;
+    private int codigo;
     private String descricao;
     private Endereco endereco;
     private int qteComodos;
     private Boolean mobiliada;
     private int tamTerreno;
 
-    public int getId() {
-        return id;
+    public Imovel() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getDescricao() {
@@ -57,7 +62,21 @@ public class Imovel {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Imovel)) return false;
+        Imovel imovel = (Imovel) o;
+        return codigo == imovel.codigo;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(codigo);
+    }
+
+    @Override
     public String toString() {
-        return id + " - " + descricao;
+        return codigo + " - " + descricao;
     }
 }

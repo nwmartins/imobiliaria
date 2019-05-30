@@ -1,7 +1,9 @@
 package com.example.norto.imobiliaria.models;
 
+import java.util.Objects;
+
 public class Endereco {
-    private int id;
+    private int codigo;
     private String logradouro;
     private String bairro;
     private int numero;
@@ -10,20 +12,12 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(int id, String logradouro, String bairro, int numero, String complemento) {
-        this.id = id;
-        this.logradouro = logradouro;
-        this.bairro = bairro;
-        this.numero = numero;
-        this.complemento = complemento;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getLogradouro() {
@@ -59,7 +53,21 @@ public class Endereco {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Endereco)) return false;
+        Endereco endereco = (Endereco) o;
+        return codigo == endereco.codigo;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(codigo);
+    }
+
+    @Override
     public String toString() {
-        return id + " - " + logradouro + " - " + numero + " - " + bairro;
+        return codigo + " - " + logradouro + " - " + numero + " - " + bairro;
     }
 }

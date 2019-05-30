@@ -1,25 +1,48 @@
 package com.example.norto.imobiliaria.models;
 
+import java.util.Objects;
+
 public class Cliente {
-    private int id;
-    private Pessoa pessoa;
+    private int codigo;
+    private String nome;
+    private String rg;
+    private String cpf;
     private String email;
     private Endereco enderco;
 
-    public int getId() {
-        return id;
+    public Cliente() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getEmail() {
@@ -39,7 +62,21 @@ public class Cliente {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cliente)) return false;
+        Cliente cliente = (Cliente) o;
+        return codigo == cliente.codigo;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(codigo);
+    }
+
+    @Override
     public String toString() {
-        return id + " - " + pessoa.getNome();
+        return codigo + " - " + nome;
     }
 }
