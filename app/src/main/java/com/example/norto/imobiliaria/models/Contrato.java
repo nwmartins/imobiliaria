@@ -1,6 +1,7 @@
 package com.example.norto.imobiliaria.models;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Contrato {
     private int id;
@@ -11,6 +12,9 @@ public class Contrato {
     private Double valor;
     private int meses;
     private Date dtContrato;
+
+    public Contrato() {
+    }
 
     public int getId() {
         return id;
@@ -77,7 +81,21 @@ public class Contrato {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Contrato)) return false;
+        Contrato contrato = (Contrato) o;
+        return id == contrato.id;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id);
+    }
+
+    @Override
     public String toString() {
-        return id + " - " + imovel.getDescricao() + " - " + corretor.getPessoa().getNome() + " - " + cliente.getPessoa().getNome();
+        return id + " - " + imovel.getDescricao() + " - " + corretor.getNome() + " - " + cliente.getNome();
     }
 }
