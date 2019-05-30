@@ -1,11 +1,16 @@
 package com.example.norto.imobiliaria.models;
 
+import com.orm.dsl.NotNull;
+
 import java.util.Objects;
 
 public class Endereco {
     private int codigo;
+    @NotNull
     private String logradouro;
+    @NotNull
     private String bairro;
+    @NotNull
     private int numero;
     private String complemento;
 

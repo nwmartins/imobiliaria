@@ -1,13 +1,21 @@
 package com.example.norto.imobiliaria.models;
 
+import com.orm.dsl.NotNull;
+import com.orm.dsl.Unique;
+
 import java.util.Objects;
 
 public class Cliente {
+    @Unique
     private int codigo;
+    @NotNull
     private String nome;
+    @NotNull
     private String rg;
+    @NotNull
     private String cpf;
     private String email;
+    @NotNull
     private Endereco enderco;
 
     public Cliente() {

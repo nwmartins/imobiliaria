@@ -1,27 +1,38 @@
 package com.example.norto.imobiliaria.models;
 
+import com.orm.dsl.NotNull;
+import com.orm.dsl.Unique;
+
 import java.util.Date;
 import java.util.Objects;
 
 public class Contrato {
-    private int id;
+    @Unique
+    private int codigo;
+    @NotNull
     private Imovel imovel;
+    @NotNull
     private Corretor corretor;
+    @NotNull
     private Cliente cliente;
+    @NotNull
     private TipoContrato tpContrato;
+    @NotNull
     private Double valor;
+    @NotNull
     private int meses;
+    @NotNull
     private Date dtContrato;
 
     public Contrato() {
     }
 
-    public int getId() {
-        return id;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public Imovel getImovel() {
@@ -81,21 +92,7 @@ public class Contrato {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Contrato)) return false;
-        Contrato contrato = (Contrato) o;
-        return id == contrato.id;
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id);
-    }
-
-    @Override
     public String toString() {
-        return id + " - " + imovel.getDescricao() + " - " + corretor.getNome() + " - " + cliente.getNome();
+        return codigo + " - " + imovel.getDescricao() + " - " + corretor.getNome() + " - " + cliente.getNome();
     }
 }

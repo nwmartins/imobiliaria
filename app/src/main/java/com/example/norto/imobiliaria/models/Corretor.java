@@ -1,15 +1,25 @@
 package com.example.norto.imobiliaria.models;
 
+import com.orm.dsl.Ignore;
+import com.orm.dsl.NotNull;
+import com.orm.dsl.Unique;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class Corretor {
+    @Unique
     private int codigo;
+    @NotNull
     private String nome;
+    @NotNull
     private String rg;
+    @NotNull
     private String cpf;
     private String email;
+    @NotNull
     private int creci;
+    @Ignore
     private ArrayList<Imovel> imovelList;
 
     public Corretor() {

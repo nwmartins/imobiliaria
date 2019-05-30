@@ -9,12 +9,62 @@
     tools:context=".ClienteActivity"
     tools:showIn="@layout/activity_cliente">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_weight="1"
+            android:id="@+id/etCodigo"
+            android:hint="@string/lbId"
+            android:enabled="false"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_marginRight="@dimen/right_margin"
+            android:layout_weight="0.2"
+            android:id="@+id/etNome"
+            android:hint="@string/lbNome"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:id="@+id/etRg"
+            android:hint="@string/lbRg"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_marginRight="@dimen/right_margin"
+            android:layout_weight="0.8"
+            android:inputType="number"
+            android:id="@+id/etCpf"
+            android:hint="@string/lbCpf"/>
+
+    </LinearLayout>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/etIdCliente"
-        android:textSize="@dimen/text_size"
-        android:hint="@string/lbId"
-        android:layout_marginLeft="@dimen/left_margin"/>
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:id="@+id/etEmail"
+        android:hint="@string/lbEmail"/>
 
 </LinearLayout>

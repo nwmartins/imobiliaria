@@ -1,12 +1,19 @@
 package com.example.norto.imobiliaria.models;
 
+import com.orm.dsl.NotNull;
+import com.orm.dsl.Unique;
+
 import java.util.Objects;
 
 public class Imovel {
+    @Unique
     private int codigo;
+    @NotNull
     private String descricao;
+    @NotNull
     private Endereco endereco;
     private int qteComodos;
+    @NotNull
     private Boolean mobiliada;
     private int tamTerreno;
 
