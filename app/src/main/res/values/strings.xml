@@ -9,4 +9,8 @@
     <string name="lbCliente">Cliente</string>
     <string name="title_activity_cliente">Cadastro de Cliente</string>
     <string name="lbId">Id:</string>
+    <string name="lbNome">Nome</string>
+    <string name="lbRg">RG</string>
+    <string name="lbCpf">CPF</string>
+    <string name="title_activity_corretor">Cadastro de Corretor</string>
 </resources>
