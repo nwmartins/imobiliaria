@@ -90,8 +90,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_corretor) {
             Intent intent = new Intent(MainActivity.this, CorretorActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.nav_contrato) {
+            Intent intent = new Intent(MainActivity.this, ContratoActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {

@@ -17,5 +17,18 @@
     <string name="lbCreci">Creci</string>
     <string name="lbSalvar">Salvar</string>
     <string name="lbCancelar">Cancelar</string>
+    <string name="lbDescricao">Descrição</string>
+    <string name="lbLogradouro">Logradouro</string>
+    <string name="lbBairro">Bairro</string>
+    <string name="lbNumero">Número</string>
+    <string name="lbComplemento">Complemento</string>
+    <string name="lbComodos">Comodos</string>
+    <string name="lbTerreno">Terreno</string>
+    <string name="lbMobiliada">Mobiliada</string>
+    <string name="lbValor">Valor</string>
+    <string name="lbMeses">Meses</string>
+    <string name="lbDtContrato">Data do Contrato</string>
     <string name="title_activity_corretor">Cadastro de Corretor</string>
+    <string name="title_activity_imovel">Cadastro de Imóvel</string>
+    <string name="title_activity_contrato">Cadastro de Contrato</string>
 </resources>

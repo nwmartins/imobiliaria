@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".CorretorActivity"
-    tools:showIn="@layout/activity_corretor">
+    tools:context=".ContratoActivity"
+    tools:showIn="@layout/activity_contrato">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,58 +23,63 @@
             android:hint="@string/lbId"
             android:enabled="false"/>
 
-        <EditText
+        <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/left_margin"
             android:layout_marginRight="@dimen/right_margin"
             android:layout_weight="0.2"
-            android:id="@+id/etNome"
-            android:hint="@string/lbNome"/>
+            android:id="@+id/spCorretor"></Spinner>
 
     </LinearLayout>
 
-    <LinearLayout
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:id="@+id/spImovel"></Spinner>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/left_margin"
-            android:layout_weight="1"
-            android:inputType="number"
-            android:id="@+id/etRg"
-            android:hint="@string/lbRg"/>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:id="@+id/spCliente"></Spinner>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/left_margin"
-            android:layout_marginRight="@dimen/right_margin"
-            android:layout_weight="0.8"
-            android:inputType="number"
-            android:id="@+id/etCpf"
-            android:hint="@string/lbCpf"/>
-
-    </LinearLayout>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:id="@+id/spTpContrato"></Spinner>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/left_margin"
         android:layout_marginRight="@dimen/right_margin"
-        android:id="@+id/etEmail"
-        android:hint="@string/lbEmail"/>
+        android:inputType="numberDecimal"
+        android:id="@+id/etValor"
+        android:hint="@string/lbValor"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/left_margin"
         android:layout_marginRight="@dimen/right_margin"
-        android:id="@+id/etCreci"
-        android:hint="@string/lbCreci"/>
+        android:inputType="number"
+        android:id="@+id/etMeses"
+        android:hint="@string/lbMeses"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:inputType="date"
+        android:id="@+id/etDtContrato"
+        android:hint="@string/lbDtContrato"/>
 
     <LinearLayout
         android:layout_width="match_parent"
