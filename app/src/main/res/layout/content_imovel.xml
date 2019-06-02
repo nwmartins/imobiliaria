@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".CorretorActivity"
-    tools:showIn="@layout/activity_corretor">
+    tools:context=".ImovelActivity"
+    tools:showIn="@layout/activity_imovel">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,10 +29,52 @@
             android:layout_marginLeft="@dimen/left_margin"
             android:layout_marginRight="@dimen/right_margin"
             android:layout_weight="0.2"
-            android:id="@+id/etNome"
-            android:hint="@string/lbNome"/>
+            android:id="@+id/etDescricao"
+            android:hint="@string/lbDescricao"/>
 
     </LinearLayout>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:id="@+id/etLogradouro"
+        android:hint="@string/lbLogradouro"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_weight="1"
+            android:id="@+id/etBairro"
+            android:hint="@string/lbBairro"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_marginRight="@dimen/right_margin"
+            android:layout_weight="0.8"
+            android:inputType="number"
+            android:id="@+id/etNumero"
+            android:hint="@string/lbNumero"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:id="@+id/etComplemento"
+        android:hint="@string/lbComplemento"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,8 +87,8 @@
             android:layout_marginLeft="@dimen/left_margin"
             android:layout_weight="1"
             android:inputType="number"
-            android:id="@+id/etRg"
-            android:hint="@string/lbRg"/>
+            android:id="@+id/etComodos"
+            android:hint="@string/lbComodos"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -55,28 +97,18 @@
             android:layout_marginRight="@dimen/right_margin"
             android:layout_weight="0.8"
             android:inputType="number"
-            android:id="@+id/etCpf"
-            android:hint="@string/lbCpf"/>
+            android:id="@+id/euTerreno"
+            android:hint="@string/lbTerreno"/>
 
     </LinearLayout>
 
-    <EditText
+    <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/left_margin"
         android:layout_marginRight="@dimen/right_margin"
-        android:id="@+id/etEmail"
-        android:hint="@string/lbEmail"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/left_margin"
-        android:layout_marginRight="@dimen/right_margin"
-        android:id="@+id/etCreci"
-        android:inputType="number"
-        android:maxLength="6"
-        android:hint="@string/lbCreci"/>
+        android:id="@+id/cbMobiliada"
+        android:hint="@string/lbMobiliada"/>
 
     <LinearLayout
         android:layout_width="match_parent"

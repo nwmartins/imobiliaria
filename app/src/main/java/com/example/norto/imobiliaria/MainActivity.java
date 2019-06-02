@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.norto.imobiliaria.consulta.ConsultaClienteActivity;
 import com.orm.SugarContext;
 
 public class MainActivity extends AppCompatActivity
@@ -85,13 +86,14 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_cliente) {
-            Intent intent = new Intent(MainActivity.this, ClienteActivity.class);
+            Intent intent = new Intent(MainActivity.this, ConsultaClienteActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_corretor) {
             Intent intent = new Intent(MainActivity.this, CorretorActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.nav_contrato) {
+            Intent intent = new Intent(MainActivity.this, ContratoActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {

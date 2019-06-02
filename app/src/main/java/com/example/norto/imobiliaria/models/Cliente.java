@@ -1,11 +1,13 @@
 package com.example.norto.imobiliaria.models;
 
+import com.orm.SugarRecord;
 import com.orm.dsl.NotNull;
 import com.orm.dsl.Unique;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Cliente {
+public class Cliente extends SugarRecord implements Serializable {
     @Unique
     private int codigo;
     @NotNull

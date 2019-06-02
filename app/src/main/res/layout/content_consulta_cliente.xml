@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".consulta.ConsultaClienteActivity"
+    tools:showIn="@layout/activity_consulta_cliente">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/lbBusca"
+            android:id="@+id/etBuscaCliente"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_search"
+            android:id="@+id/btBuscaCliente"
+            android:layout_weight="5"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lbNovo"
+            android:id="@+id/btNovoCliente"
+            android:drawableLeft="@drawable/ic_add"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lbExcluir"
+            android:id="@+id/btExcluirCliente"
+            android:drawableLeft="@drawable/ic_remove"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_marginLeft="5dp"
+                android:textSize="18dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:id="@+id/tvCodigoCliente"
+                android:textColor="@color/colorWhite"
+                android:text="@string/lbId"/>
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_marginLeft="@dimen/fab_margin"
+                android:id="@+id/tvNomeCliente"
+                android:textColor="@color/colorWhite"
+                android:text="@string/lbNome"/>
+
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:choiceMode="singleChoice"
+            android:listSelector="@color/colorAqua"
+            android:id="@+id/lvCliente" />
+
+    </LinearLayout>
+
+</LinearLayout>

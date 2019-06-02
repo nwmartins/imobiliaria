@@ -36,7 +36,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <EditText
             android:layout_width="match_parent"
@@ -66,5 +67,73 @@
         android:layout_marginRight="@dimen/right_margin"
         android:id="@+id/etEmail"
         android:hint="@string/lbEmail"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:id="@+id/etLogradouro"
+        android:hint="@string/lbLogradouro"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_weight="1"
+            android:id="@+id/etBairro"
+            android:hint="@string/lbBairro"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_marginRight="@dimen/right_margin"
+            android:layout_weight="0.8"
+            android:inputType="number"
+            android:id="@+id/etNumero"
+            android:hint="@string/lbNumero"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/left_margin"
+        android:layout_marginRight="@dimen/right_margin"
+        android:id="@+id/etComplemento"
+        android:hint="@string/lbComplemento"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_marginRight="@dimen/right_margin"
+            android:layout_weight="1"
+            android:id="@+id/btSave"
+            android:hint="@string/lbSalvar"
+            android:drawableLeft="@drawable/ic_done"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_marginRight="@dimen/right_margin"
+            android:layout_weight="1"
+            android:id="@+id/btCancel"
+            android:hint="@string/lbCancelar"
+            android:drawableLeft="@drawable/ic_error"/>
+
+    </LinearLayout>
 
 </LinearLayout>
