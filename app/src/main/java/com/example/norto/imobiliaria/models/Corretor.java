@@ -7,6 +7,7 @@ import com.orm.dsl.Unique;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Corretor extends SugarRecord implements Serializable {
@@ -22,7 +23,7 @@ public class Corretor extends SugarRecord implements Serializable {
     @NotNull
     private int creci;
     @Ignore
-    private ArrayList<Imovel> imovelList;
+    private List<Imovel> imovelList;
 
     public Corretor() {
     }
@@ -67,11 +68,11 @@ public class Corretor extends SugarRecord implements Serializable {
         this.creci = creci;
     }
 
-    public ArrayList<Imovel> getImovelList() {
+    public List<Imovel> getImovelList() {
         return imovelList;
     }
 
-    public void setImovelList(ArrayList<Imovel> imovelList) {
+    public void setImovelList(List<Imovel> imovelList) {
         this.imovelList = imovelList;
     }
 
