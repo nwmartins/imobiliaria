@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".consulta.ConsultaCorretorActivity"
+            android:label="@string/title_activity_consultar_corretor"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".ContratoActivity"
             android:label="@string/title_activity_contrato"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -52,7 +56,7 @@
         <activity
             android:name=".consulta.ConsultaClienteActivity"
             android:label="@string/title_activity_consulta_cliente"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
