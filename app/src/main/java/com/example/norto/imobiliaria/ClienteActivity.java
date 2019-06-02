@@ -66,9 +66,17 @@ public class ClienteActivity extends AppCompatActivity {
         try {
             if ((int) getIntent().getExtras().get("EDICAO") == 1){ //Quer dizer que veio cliente em Edição
                 cliente = (Cliente) getIntent().getExtras().get("CLIENTE");
+                etNumero.setText(String.valueOf(cliente.getEnderco().getNumero()));
+                etBairro.setText(cliente.getEnderco().getBairro());
+                etComplemento.setText(cliente.getEnderco().getComplemento());
+                etLogradouro.setText(cliente.getEnderco().getLogradouro());
+                //-----
                 etNome.setText(cliente.getNome());
                 etId.setText(String.valueOf(cliente.getCodigo()));
-                etNumero.setText(String.valueOf(cliente.getEnderco().getNumero()));
+                etEmail.setText(cliente.getEmail());
+                etCPF.setText(cliente.getCpf());
+                etRG.setText(cliente.getRg());
+
             } else {
                 getLastId();
             }
@@ -81,22 +89,24 @@ public class ClienteActivity extends AppCompatActivity {
     private void save() {
         try {
             if (cliente != null) {
+                //endereco = cliente.getEnderco();
                 endereco.setLogradouro(etLogradouro.getText().toString().trim());
                 endereco.setBairro(etBairro.getText().toString().trim());
                 endereco.setCodigo(Integer.parseInt(etId.getText().toString().trim())); //Tem q ver se vai funcionar, creio q sim
                 endereco.setComplemento(etComplemento.getText().toString().trim());
                 endereco.setNumero(Integer.parseInt(etNumero.getText().toString().trim()));
-                //endereco.update();
+                endereco.update();
 
                 cliente.setCodigo(Integer.parseInt(etId.getText().toString().trim()));
                 cliente.setCpf(etCPF.getText().toString().replace(".", "").replace("-", "").trim());
                 cliente.setEmail(etEmail.getText().toString().trim());
                 cliente.setEnderco(endereco);
+                cliente.setNome(etNome.getText().toString().trim());
                 cliente.setRg(etRG.getText().toString().replace(".", "").replace("-", "").trim());
                 cliente.update();
             } else {
-                Cliente cliente = new Cliente();
                 Endereco endereco = new Endereco();
+                cliente = new Cliente();
                 endereco.setLogradouro(etLogradouro.getText().toString().trim());
                 endereco.setBairro(etBairro.getText().toString().trim());
                 endereco.setCodigo(Integer.parseInt(etId.getText().toString().trim())); //Tem q ver se vai funcionar, creio q sim
@@ -112,6 +122,8 @@ public class ClienteActivity extends AppCompatActivity {
                 cliente.setNome(etNome.getText().toString().trim());
                 cliente.save();
             }
+            setResult(RESULT_OK);
+            finish();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
