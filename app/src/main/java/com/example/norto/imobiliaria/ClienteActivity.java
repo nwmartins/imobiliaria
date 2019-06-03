@@ -19,7 +19,7 @@ public class ClienteActivity extends AppCompatActivity {
     private Button btSave, btCancel;
 
     private Cliente cliente;
-    private Endereco endereco;
+    //private Endereco endereco;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +89,7 @@ public class ClienteActivity extends AppCompatActivity {
     private void save() {
         try {
             if (cliente != null) {
+                Endereco endereco = cliente.getEnderco();
                 //endereco = cliente.getEnderco();
                 endereco.setLogradouro(etLogradouro.getText().toString().trim());
                 endereco.setBairro(etBairro.getText().toString().trim());
