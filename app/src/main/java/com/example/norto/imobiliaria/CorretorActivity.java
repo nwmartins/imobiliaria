@@ -106,10 +106,9 @@ public class CorretorActivity extends AppCompatActivity {
                 corretor.setNome(etNome.getText().toString().trim());
                 corretor.setCreci(Integer.parseInt(etCreci.getText().toString().trim()));
                 corretor.save();
-
-                Intent intent = new Intent(CorretorActivity.this, ConsultaCorretorActivity.class);
-                startActivity(intent);
             }
+            setResult(RESULT_OK);
+            finish();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
