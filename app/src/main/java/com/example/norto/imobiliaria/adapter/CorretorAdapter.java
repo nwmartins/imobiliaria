@@ -43,6 +43,7 @@ public class CorretorAdapter extends BaseAdapter {
         convertView = inflater.inflate(R.layout.item_corretor, null);
         ((TextView) convertView.findViewById(R.id.tvIdCorretor)).setText(String.valueOf(corretor.getCodigo()));
         ((TextView) convertView.findViewById(R.id.tvNomeCorretor)).setText(corretor.getNome());
+        ((TextView) convertView.findViewById(R.id.tvCreciCorretor)).setText(String.valueOf(corretor.getCreci()));
         return convertView;
     }
 }

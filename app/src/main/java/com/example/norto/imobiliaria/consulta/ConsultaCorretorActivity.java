@@ -2,8 +2,7 @@ package com.example.norto.imobiliaria.consulta;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -34,7 +33,7 @@ public class ConsultaCorretorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consultar_corretor);
+        setContentView(R.layout.activity_consulta_corretor);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -64,7 +63,7 @@ public class ConsultaCorretorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ConsultaCorretorActivity.this, CorretorActivity.class);
                 intent.putExtra("EDICAO", 0);
-                startActivity(intent);
+                startActivityForResult(intent, CORRETOR);
             }
         });
 
@@ -80,6 +79,14 @@ public class ConsultaCorretorActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            loadList();
+        }
     }
 
 }
