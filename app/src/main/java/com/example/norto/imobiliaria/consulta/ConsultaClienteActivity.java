@@ -77,7 +77,7 @@ public class ConsultaClienteActivity extends AppCompatActivity {
                 Cliente cliente = (Cliente) lvCliente.getItemAtPosition(position);
                 Intent intent = new Intent(ConsultaClienteActivity.this, ClienteActivity.class);
                 intent.putExtra("EDICAO", 1);
-                intent.putExtra("CLIENTE", cliente);
+                intent.putExtra("CLIENTE", cliente.getId());
                 startActivityForResult(intent, CLIENTE);
                 return true;
             }
