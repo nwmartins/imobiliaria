@@ -22,6 +22,7 @@ public class CorretorActivity extends AppCompatActivity {
 
     private EditText etId, etNome, etRG, etCPF, etEmail, etCreci;
     private Button btSave, btCancel;
+    private FloatingActionButton fab;
 
     private Corretor corretor;
 
@@ -43,6 +44,8 @@ public class CorretorActivity extends AppCompatActivity {
             }
         });
 
+        fab.hide();
+
         loadComponets();
 
     }
@@ -56,6 +59,7 @@ public class CorretorActivity extends AppCompatActivity {
         etCreci = findViewById(R.id.etCreci);
         btSave = findViewById(R.id.btSave);
         btCancel = findViewById(R.id.btCancel);
+        fab = findViewById(R.id.fab);
 
         loadEvents();
     }
@@ -79,6 +83,7 @@ public class CorretorActivity extends AppCompatActivity {
                 corretor = Corretor.findById(Corretor.class, id);
                 btSave.setHint(R.string.lbAtualizar);
                 setFields(corretor);
+                fab.show();
             } else {
                 getLastId();
             }
