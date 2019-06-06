@@ -1,10 +1,12 @@
 package com.example.norto.imobiliaria.consulta;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -25,11 +27,12 @@ import java.util.List;
 public class ConsultaClienteActivity extends AppCompatActivity {
 
     private EditText etBuscaCliente;
-    private Button btNovo, btExcluir;
+    private Button btNovo, btDelete;
     private ImageButton btBuscaCliente;
     private ListView lvCliente;
 
     private ClienteAdapter clienteAdapter;
+    private Cliente cliente;
 
     private final int CLIENTE = 1;
 
@@ -55,7 +58,7 @@ public class ConsultaClienteActivity extends AppCompatActivity {
         etBuscaCliente = findViewById(R.id.etBuscaCliente);
         btBuscaCliente = findViewById(R.id.btBuscaCliente);
         btNovo = findViewById(R.id.btNovoCliente);
-        btExcluir = findViewById(R.id.btExcluirCliente);
+        btDelete = findViewById(R.id.btExcluirCliente);
         lvCliente = findViewById(R.id.lvCliente);
 
         loadEvents();
@@ -83,6 +86,20 @@ public class ConsultaClienteActivity extends AppCompatActivity {
             }
         });
 
+        lvCliente.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                cliente = (Cliente) lvCliente.getItemAtPosition(position);
+            }
+        });
+
+        btDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                delete(cliente);
+            }
+        });
+
         btBuscaCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,6 +115,26 @@ public class ConsultaClienteActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void delete(final Cliente cliente) {
+        AlertDialog.Builder alertConfirmacao = new AlertDialog.Builder(ConsultaClienteActivity.this);
+        alertConfirmacao.setTitle(R.string.lbTitleExclusao);
+        alertConfirmacao.setMessage(R.string.lbMessageExclusao);
+        alertConfirmacao.setNeutralButton(R.string.lbOk, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                cliente.delete();
+                loadList();
+            }
+        });
+        alertConfirmacao.setNegativeButton(R.string.lbCancelar, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        alertConfirmacao.show();
     }
 
     @Override

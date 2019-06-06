@@ -20,7 +20,7 @@ import java.util.List;
 
 public class CorretorActivity extends AppCompatActivity {
 
-    private EditText etId, etNome, etRG, etCPF, etComplemento,etEmail, etCreci;
+    private EditText etId, etNome, etRG, etCPF, etEmail, etCreci;
     private Button btSave, btCancel;
 
     private Corretor corretor;
@@ -52,7 +52,6 @@ public class CorretorActivity extends AppCompatActivity {
         etNome = findViewById(R.id.etNome);
         etRG = findViewById(R.id.etRg);
         etCPF = findViewById(R.id.etCpf);
-        etComplemento = findViewById(R.id.etComplemento);
         etEmail = findViewById(R.id.etEmail);
         etCreci = findViewById(R.id.etCreci);
         btSave = findViewById(R.id.btSave);
@@ -76,9 +75,10 @@ public class CorretorActivity extends AppCompatActivity {
         });
         try {
             if ((int) getIntent().getExtras().get("EDICAO") == 1){ //Quer dizer que veio cliente em Edição
-                corretor = (Corretor) getIntent().getExtras().get("CORRETOR");
-                etNome.setText(corretor.getNome());
-                etId.setText(String.valueOf(corretor.getCodigo()));
+                long id = getIntent().getExtras().getLong("ID");
+                corretor = Corretor.findById(Corretor.class, id);
+                btSave.setHint(R.string.lbAtualizar);
+                setFields(corretor);
             } else {
                 getLastId();
             }
@@ -87,24 +87,23 @@ public class CorretorActivity extends AppCompatActivity {
         }
     }
 
+    private void setFields(Corretor corretor) {
+        etId.setText(String.valueOf(corretor.getCodigo()));
+        etNome.setText(corretor.getNome());
+        etRG.setText(corretor.getRg());
+        etCPF.setText(corretor.getCpf());
+        etEmail.setText(corretor.getEmail());
+        etCreci.setText(String.valueOf(corretor.getCreci()));
+    }
+
     private void save() {
         try {
             if (corretor != null) {
-                corretor.setCodigo(Integer.parseInt(etId.getText().toString().trim()));
-                corretor.setCpf(etCPF.getText().toString().replace(".", "").replace("-", "").trim());
-                corretor.setEmail(etEmail.getText().toString().trim());
-                corretor.setRg(etRG.getText().toString().replace(".", "").replace("-", "").trim());
-                corretor.setCreci(Integer.parseInt(etCreci.getText().toString().trim()));
+                setCorretor(corretor);
                 corretor.update();
             } else {
                 corretor = new Corretor();
-
-                corretor.setCodigo(Integer.parseInt(etId.getText().toString().trim()));
-                corretor.setCpf(etCPF.getText().toString().replace(".", "").replace("-", "").trim());
-                corretor.setEmail(etEmail.getText().toString().trim());
-                corretor.setRg(etRG.getText().toString().replace(".", "").replace("-", "").trim());
-                corretor.setNome(etNome.getText().toString().trim());
-                corretor.setCreci(Integer.parseInt(etCreci.getText().toString().trim()));
+                setCorretor(corretor);
                 corretor.save();
             }
             setResult(RESULT_OK);
@@ -114,9 +113,17 @@ public class CorretorActivity extends AppCompatActivity {
         }
     }
 
+    private void setCorretor(Corretor corretor) {
+        corretor.setCodigo(Integer.parseInt(etId.getText().toString().trim()));
+        corretor.setCpf(etCPF.getText().toString().replace(".", "").replace("-", "").trim());
+        corretor.setEmail(etEmail.getText().toString().trim());
+        corretor.setRg(etRG.getText().toString().replace(".", "").replace("-", "").trim());
+        corretor.setNome(etNome.getText().toString().trim());
+        corretor.setCreci(Integer.parseInt(etCreci.getText().toString().trim()));
+    }
+
     private void getLastId() {
         Corretor last = Corretor.last(Corretor.class);
-
         int codigo = last != null ? last.getCodigo() + 1 : 1;
         etId.setText(String.valueOf(codigo));
     }
