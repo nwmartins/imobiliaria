@@ -83,6 +83,21 @@ public class ConsultaClienteActivity extends AppCompatActivity {
             }
         });
 
+        btBuscaCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (etBuscaCliente.getText().toString().trim().length() > 0) {
+                    List<Cliente> filterCliente = Cliente.find(Cliente.class,
+                            "UPPER(NOME) LIKE UPPER('%" + etBuscaCliente.getText().toString() + "%') " +
+                                    "OR CAST(ID AS VARCHAR(3)) LIKE '%" + etBuscaCliente.getText().toString() + "%'");
+
+                    clienteAdapter = new ClienteAdapter(ConsultaClienteActivity.this, filterCliente);
+                    lvCliente.setAdapter(clienteAdapter);
+                } else
+                    loadList();
+            }
+        });
+
     }
 
     @Override
