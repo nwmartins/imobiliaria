@@ -69,6 +69,7 @@ public class Corretor extends SugarRecord implements Serializable {
     }
 
     public List<Imovel> getImovelList() {
+        imovelList = Imovel.find(Imovel.class, " corretor = " + getId());
         return imovelList;
     }
 

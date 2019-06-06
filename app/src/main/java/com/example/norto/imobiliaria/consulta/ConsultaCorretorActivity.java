@@ -1,8 +1,10 @@
 package com.example.norto.imobiliaria.consulta;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -27,6 +29,7 @@ public class ConsultaCorretorActivity extends AppCompatActivity {
     private ListView lvCorretor;
 
     private CorretorAdapter corretorAdapter;
+    private Corretor corretor;
 
     private final int CORRETOR = 1;
 
@@ -66,19 +69,49 @@ public class ConsultaCorretorActivity extends AppCompatActivity {
                 startActivityForResult(intent, CORRETOR);
             }
         });
-
         lvCorretor.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Corretor corretor = (Corretor) lvCorretor.getItemAtPosition(position);
+                corretor = (Corretor) lvCorretor.getItemAtPosition(position);
                 Intent intent = new Intent(ConsultaCorretorActivity.this, CorretorActivity.class);
                 intent.putExtra("EDICAO", 1);
-                intent.putExtra("CORRETOR", corretor);
+                intent.putExtra("ID", corretor.getId());
                 startActivityForResult(intent, CORRETOR);
                 return true;
             }
         });
+        lvCorretor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                corretor = (Corretor) lvCorretor.getItemAtPosition(position);
+            }
+        });
+        btExcluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                delete(corretor);
+            }
+        });
+    }
 
+    private void delete(final Corretor corretor) {
+        AlertDialog.Builder alertConfirmacao = new AlertDialog.Builder(ConsultaCorretorActivity.this);
+        alertConfirmacao.setTitle(R.string.lbTitleExclusao);
+        alertConfirmacao.setMessage(R.string.lbMessageExclusao);
+        alertConfirmacao.setNeutralButton(R.string.lbOk, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                corretor.delete();
+                loadList();
+            }
+        });
+        alertConfirmacao.setNegativeButton(R.string.lbCancelar, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        alertConfirmacao.show();
     }
 
     @Override
