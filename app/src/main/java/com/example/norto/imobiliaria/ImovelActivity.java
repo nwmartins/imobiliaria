@@ -94,9 +94,9 @@ public class ImovelActivity extends AppCompatActivity {
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ouput = new Intent();
-                ouput.putExtra("CORRETORID", corretor.getId());
-                setResult(RESULT_OK, ouput);
+                //Intent ouput = new Intent();
+                //ouput.putExtra("CORRETORID", corretor.getId());
+                setResult(RESULT_OK);
                 finish();
             }
         });
@@ -165,7 +165,7 @@ public class ImovelActivity extends AppCompatActivity {
         endereco.setBairro(etBairro.getText().toString().trim());
         endereco.setNumero(Integer.parseInt(etNumero.getText().toString().trim()));
         endereco.setComplemento(etComplemento.getText().toString().trim());
-        endereco.setCodigo(getLastIdEndereco());
+        endereco.setCodigo(Integer.parseInt(etCodigo.getText().toString().trim()));
         imovel.setEndereco(endereco);
         imovel.setQteComodos(Integer.parseInt(etComodos.getText().toString().trim()));
         imovel.setTamTerreno(Integer.parseInt(etTerreno.getText().toString().trim()));

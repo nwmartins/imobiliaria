@@ -80,7 +80,7 @@ public class CorretorActivity extends AppCompatActivity {
             }
         });
         try {
-            if ((int) getIntent().getExtras().get("EDICAO") == 1){ //Quer dizer que veio cliente em Edição
+            if ((int) getIntent().getExtras().get("EDICAO") == 1){ //Quer dizer que veio corretor em Edição
                 long id = getIntent().getExtras().getLong("ID");
                 corretor = Corretor.findById(Corretor.class, id);
                 btSave.setHint(R.string.lbAtualizar);
@@ -136,13 +136,13 @@ public class CorretorActivity extends AppCompatActivity {
         etId.setText(String.valueOf(codigo));
     }
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
+        if (resultCode == RESULT_OK && requestCode == IMOVEL) {
             int id = (int) data.getExtras().get("CORRETORID");
             corretor = Corretor.findById(Corretor.class, id);
         }
-    }
+    }*/
 
 }
