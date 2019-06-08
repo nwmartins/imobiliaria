@@ -64,63 +64,45 @@ public class ClienteActivity extends AppCompatActivity {
             }
         });
         try {
-            if ((int) getIntent().getExtras().get("EDICAO") == 1){ //Quer dizer que veio cliente em Edição
-                cliente = (Cliente) getIntent().getExtras().get("CLIENTE");
-                etNumero.setText(String.valueOf(cliente.getEnderco().getNumero()));
-                etBairro.setText(cliente.getEnderco().getBairro());
-                etComplemento.setText(cliente.getEnderco().getComplemento());
-                etLogradouro.setText(cliente.getEnderco().getLogradouro());
-                //-----
-                etNome.setText(cliente.getNome());
-                etId.setText(String.valueOf(cliente.getCodigo()));
-                etEmail.setText(cliente.getEmail());
-                etCPF.setText(cliente.getCpf());
-                etRG.setText(cliente.getRg());
-
-            } else {
+            if (getIntent().getExtras().getInt("EDICAO") == 1){ //Quer dizer que veio cliente em Edição
+                cliente = Cliente.findById(Cliente.class, getIntent().getExtras().getLong("CLIENTE"));
+                setFlieds(cliente);
+            } else
                 getLastId();
-            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
     }
 
+    private void setFlieds(Cliente cliente) {
+        etNumero.setText(String.valueOf(cliente.getEnderco().getNumero()));
+        etBairro.setText(cliente.getEnderco().getBairro());
+        etComplemento.setText(cliente.getEnderco().getComplemento());
+        etLogradouro.setText(cliente.getEnderco().getLogradouro());
+        etNome.setText(cliente.getNome());
+        etId.setText(String.valueOf(cliente.getCodigo()));
+        etEmail.setText(cliente.getEmail());
+        etCPF.setText(cliente.getCpf());
+        etRG.setText(cliente.getRg());
+    }
+
     private void save() {
         try {
+            Endereco endereco = new Endereco();
             if (cliente != null) {
-                Endereco endereco = cliente.getEnderco();
-                //endereco = cliente.getEnderco();
-                endereco.setLogradouro(etLogradouro.getText().toString().trim());
-                endereco.setBairro(etBairro.getText().toString().trim());
-                endereco.setCodigo(Integer.parseInt(etId.getText().toString().trim())); //Tem q ver se vai funcionar, creio q sim
-                endereco.setComplemento(etComplemento.getText().toString().trim());
-                endereco.setNumero(Integer.parseInt(etNumero.getText().toString().trim()));
+                setEndereco(endereco);
                 endereco.update();
 
-                cliente.setCodigo(Integer.parseInt(etId.getText().toString().trim()));
-                cliente.setCpf(etCPF.getText().toString().replace(".", "").replace("-", "").trim());
-                cliente.setEmail(etEmail.getText().toString().trim());
-                cliente.setEnderco(endereco);
-                cliente.setNome(etNome.getText().toString().trim());
-                cliente.setRg(etRG.getText().toString().replace(".", "").replace("-", "").trim());
+                setCliente(endereco, cliente);
                 cliente.update();
             } else {
-                Endereco endereco = new Endereco();
                 cliente = new Cliente();
-                endereco.setLogradouro(etLogradouro.getText().toString().trim());
-                endereco.setBairro(etBairro.getText().toString().trim());
-                endereco.setCodigo(Integer.parseInt(etId.getText().toString().trim())); //Tem q ver se vai funcionar, creio q sim
-                endereco.setComplemento(etComplemento.getText().toString().trim());
-                endereco.setNumero(Integer.parseInt(etNumero.getText().toString().trim()));
+
+                setEndereco(endereco);
                 endereco.save();
 
-                cliente.setCodigo(Integer.parseInt(etId.getText().toString().trim()));
-                cliente.setCpf(etCPF.getText().toString().replace(".", "").replace("-", "").trim());
-                cliente.setEmail(etEmail.getText().toString().trim());
-                cliente.setEnderco(endereco);
-                cliente.setRg(etRG.getText().toString().replace(".", "").replace("-", "").trim());
-                cliente.setNome(etNome.getText().toString().trim());
+                setCliente(endereco, cliente);
                 cliente.save();
             }
             setResult(RESULT_OK);
@@ -128,7 +110,23 @@ public class ClienteActivity extends AppCompatActivity {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
 
+    private void setEndereco(Endereco endereco) {
+        endereco.setLogradouro(etLogradouro.getText().toString().trim());
+        endereco.setBairro(etBairro.getText().toString().trim());
+        endereco.setCodigo(Integer.parseInt(etId.getText().toString().trim())); //Tem q ver se vai funcionar, creio q sim
+        endereco.setComplemento(etComplemento.getText().toString().trim());
+        endereco.setNumero(Integer.parseInt(etNumero.getText().toString().trim()));
+    }
+
+    private void setCliente(Endereco endereco, Cliente cliente) {
+        cliente.setCodigo(Integer.parseInt(etId.getText().toString().trim()));
+        cliente.setCpf(etCPF.getText().toString().replace(".", "").replace("-", "").trim());
+        cliente.setEmail(etEmail.getText().toString().trim());
+        cliente.setEnderco(endereco);
+        cliente.setNome(etNome.getText().toString().trim());
+        cliente.setRg(etRG.getText().toString().replace(".", "").replace("-", "").trim());
     }
 
     private void getLastId() {
