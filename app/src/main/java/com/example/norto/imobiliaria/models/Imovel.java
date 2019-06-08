@@ -13,6 +13,8 @@ public class Imovel extends SugarRecord implements Serializable {
     @NotNull
     private String descricao;
     @NotNull
+    private Corretor corretor;
+    @NotNull
     private Endereco endereco;
     private int qteComodos;
     @NotNull
@@ -36,6 +38,14 @@ public class Imovel extends SugarRecord implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Corretor getCorretor() {
+        return corretor;
+    }
+
+    public void setCorretor(Corretor corretor) {
+        this.corretor = corretor;
     }
 
     public Endereco getEndereco() {

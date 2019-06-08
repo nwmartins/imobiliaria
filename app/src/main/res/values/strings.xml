@@ -31,6 +31,7 @@
     <string name="lbBusca">Filtro</string>
     <string name="lbNovo">Novo</string>
     <string name="lbExcluir">Excluir</string>
+    <string name="lbAdicionar">Adicionar</string>
     <string name="lbTitleExclusao">Confirmação Exclusão</string>
     <string name="lbMessageExclusao">Deseja Realmente excluir o Registro ???</string>
     <string name="lbOk">Ok</string>
