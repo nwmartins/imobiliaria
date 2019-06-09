@@ -97,18 +97,36 @@
             android:layout_marginRight="@dimen/right_margin"
             android:layout_weight="0.8"
             android:inputType="number"
-            android:id="@+id/euTerreno"
+            android:id="@+id/etTerreno"
             android:hint="@string/lbTerreno"/>
 
     </LinearLayout>
 
-    <CheckBox
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/left_margin"
-        android:layout_marginRight="@dimen/right_margin"
-        android:id="@+id/cbMobiliada"
-        android:hint="@string/lbMobiliada"/>
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_marginRight="@dimen/right_margin"
+            android:layout_weight="1"
+            android:id="@+id/cbMobiliada"
+            android:hint="@string/lbMobiliada"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/left_margin"
+            android:layout_marginRight="@dimen/right_margin"
+            android:layout_weight="1"
+            android:id="@+id/btAdd"
+            android:hint="@string/lbAdicionar"
+            android:drawableLeft="@drawable/ic_add"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -121,7 +139,7 @@
             android:layout_marginLeft="@dimen/left_margin"
             android:layout_marginRight="@dimen/right_margin"
             android:layout_weight="1"
-            android:id="@+id/btSalvar"
+            android:id="@+id/btSave"
             android:hint="@string/lbSalvar"
             android:drawableLeft="@drawable/ic_done"/>
 
@@ -131,9 +149,58 @@
             android:layout_marginLeft="@dimen/left_margin"
             android:layout_marginRight="@dimen/right_margin"
             android:layout_weight="1"
-            android:id="@+id/btCancelar"
+            android:id="@+id/btCancel"
             android:hint="@string/lbCancelar"
             android:drawableLeft="@drawable/ic_error"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_marginLeft="5dp"
+                android:textSize="18dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/ivImovel"
+                android:background="@mipmap/ic_home"/>
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_marginLeft="5dp"
+                android:textSize="18dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:id="@+id/tvCodigoImovel"
+                android:textColor="@color/colorWhite"
+                android:text="@string/lbId"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_marginLeft="@dimen/fab_margin"
+                android:id="@+id/tvDescImovel"
+                android:textColor="@color/colorWhite"
+                android:text="@string/lbDescricao"/>
+
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:choiceMode="singleChoice"
+            android:listSelector="@color/colorAqua"
+            android:id="@+id/lvImovel"/>
 
     </LinearLayout>
 

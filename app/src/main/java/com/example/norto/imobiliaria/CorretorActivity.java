@@ -26,6 +26,8 @@ public class CorretorActivity extends AppCompatActivity {
 
     private Corretor corretor;
 
+    private final int IMOVEL = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +42,10 @@ public class CorretorActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 Intent intent = new Intent(CorretorActivity.this, ImovelActivity.class);
-                startActivity(intent);
+                intent.putExtra("CORRETORID", corretor.getId());
+                startActivityForResult(intent, IMOVEL);
             }
         });
-
-        fab.hide();
 
         loadComponets();
 
@@ -74,11 +75,12 @@ public class CorretorActivity extends AppCompatActivity {
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                setResult(RESULT_OK);
+                finish();
             }
         });
         try {
-            if ((int) getIntent().getExtras().get("EDICAO") == 1){ //Quer dizer que veio cliente em Edição
+            if ((int) getIntent().getExtras().get("EDICAO") == 1){ //Quer dizer que veio corretor em Edição
                 long id = getIntent().getExtras().getLong("ID");
                 corretor = Corretor.findById(Corretor.class, id);
                 btSave.setHint(R.string.lbAtualizar);
@@ -86,6 +88,7 @@ public class CorretorActivity extends AppCompatActivity {
                 fab.show();
             } else {
                 getLastId();
+                fab.hide();
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -132,5 +135,14 @@ public class CorretorActivity extends AppCompatActivity {
         int codigo = last != null ? last.getCodigo() + 1 : 1;
         etId.setText(String.valueOf(codigo));
     }
+
+    /*@Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == IMOVEL) {
+            int id = (int) data.getExtras().get("CORRETORID");
+            corretor = Corretor.findById(Corretor.class, id);
+        }
+    }*/
 
 }
