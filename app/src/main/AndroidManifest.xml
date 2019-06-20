@@ -12,7 +12,7 @@
         <activity
             android:name=".consulta.ConsultaCorretorActivity"
             android:label="@string/title_activity_consultar_corretor"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ContratoActivity"
             android:label="@string/title_activity_contrato"
@@ -31,7 +31,7 @@
             android:value="imobiliaria.db" />
         <meta-data
             android:name="VERSION"
-            android:value="1" />
+            android:value="3" />
         <meta-data
             android:name="QUERY_LOG"
             android:value="true" />
@@ -57,6 +57,10 @@
             android:name=".consulta.ConsultaClienteActivity"
             android:label="@string/title_activity_consulta_cliente"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".consulta.ConsultaContratoActivity"
+            android:label="@string/title_activity_consulta_contrato"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -14,6 +14,8 @@
     <string name="lbCpf">CPF</string>
     <string name="lbEmail">Email</string>
     <string name="lbCorretor">Corretor</string>
+    <string name="lbImovel">Imóvel</string>
+    <string name="lbContrato">Contrato</string>
     <string name="lbCreci">Creci</string>
     <string name="lbSalvar">Salvar</string>
     <string name="lbCancelar">Cancelar</string>
@@ -41,4 +43,5 @@
     <string name="title_activity_contrato">Cadastro de Contrato</string>
     <string name="title_activity_consulta_cliente">Consulta de Clientes</string>
     <string name="title_activity_consultar_corretor">Consulta de Corretores</string>
+    <string name="title_activity_consulta_contrato">ConsultaContrato</string>
 </resources>

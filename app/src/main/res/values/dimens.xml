@@ -7,5 +7,6 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="left_margin">3dp</dimen>
     <dimen name="right_margin">3dp</dimen>
+    <dimen name="size_default">18dp</dimen>
     <dimen name="text_size">22dp</dimen>
 </resources>

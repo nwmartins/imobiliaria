@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.norto.imobiliaria.consulta.ConsultaClienteActivity;
+import com.example.norto.imobiliaria.consulta.ConsultaContratoActivity;
 import com.example.norto.imobiliaria.consulta.ConsultaCorretorActivity;
 import com.orm.SugarContext;
 
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, ConsultaCorretorActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_contrato) {
-            Intent intent = new Intent(MainActivity.this, ContratoActivity.class);
+            Intent intent = new Intent(MainActivity.this, ConsultaContratoActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_manage) {
 
